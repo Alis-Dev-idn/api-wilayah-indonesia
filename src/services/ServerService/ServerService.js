@@ -3,10 +3,14 @@ config();
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import https from "https";
+import http from "http";
+import fs from "fs";
 import {DbConnect} from "../../databases/database.js";
 import Routes from "../../routes/route.js";
 
 const ServerService = () => {
+    let server;
     const app = express();
 
     app.use(cors());
@@ -16,8 +20,17 @@ const ServerService = () => {
 
     app.use(Routes());
 
+    if(process.env.SSL && process.env.SSL === "true") {
+        const config = {
+            key: fs.readFileSync(process.env.KEY),
+            cert: fs.readFileSync(process.env.CERT)
+        }
+        server = https.createServer(config, app);
+    }
+    if(process.env.SSL && process.env.SSL === "false" || !process.env.SSL) server = http.createServer(app);
+
     DbConnect().then(response => {
-        app.listen(process.env.SERVER_PORT, () => {
+        server.listen(process.env.SERVER_PORT, () => {
             console.log("--------------------------------------------")
             console.log(response);
             console.log("server running:")
