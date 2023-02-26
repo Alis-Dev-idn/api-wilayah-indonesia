@@ -125,9 +125,9 @@ contoh response menggunakan query ````province_id```` dan ```name``` 32 dan band
 > salah satu query diperlukan
 
 ### 3. Daerah
-| No. | Methode | endpoint  | params | query                 | body | keterangan                                          |
-|-----|---------|-----------|--------|-----------------------|------|-----------------------------------------------------|
-| 1 | GET | /district | -      | id, name, regency_id | -    | mendapatkan data options maupun data kota/kabupaten |
+| No. | Methode | endpoint  | params | query                 | body | keterangan                                  |
+|-----|---------|-----------|--------|-----------------------|------|---------------------------------------------|
+| 1 | GET | /district | -      | id, name, regency_id | -    | mendapatkan data options maupun data Daerah |
 
 #### a. Contoh Response GET
 contoh response menggunakan query ````name```` bandung :
@@ -214,9 +214,9 @@ contoh response menggunakan query ````regency_id```` dan ```name``` 3504 dan ban
 > salah satu query diperlukan
 
 ### 4. Desa
-| No. | Methode | endpoint | params | query                 | body | keterangan                                          |
-|-----|---------|----------|--------|-----------------------|------|-----------------------------------------------------|
-| 1 | GET | /village | -      | id, name, district_id | -    | mendapatkan data options maupun data kota/kabupaten |
+| No. | Methode | endpoint | params | query                 | body | keterangan                                |
+|-----|---------|----------|--------|-----------------------|------|-------------------------------------------|
+| 1 | GET | /village | -      | id, name, district_id | -    | mendapatkan data options maupun data Desa |
 
 #### a. Contoh Response GET
 contoh response menggunakan query ````name```` bandung :
